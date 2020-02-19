@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate');
+const mongooseAutoIncrement = require('mongoose-auto-increment');
+
+mongooseAutoIncrement.initialize(mongoose.connection);
 
 const AnimalSchema = new mongoose.Schema({
     id: {
@@ -25,5 +28,6 @@ const AnimalSchema = new mongoose.Schema({
 });
 
 AnimalSchema.plugin(mongoosePaginate);
+AnimalSchema.plugin(mongooseAutoIncrement.plugin, { model: 'Animal', field: 'id', startAt: 1, incrementBy: 1 });
 
 mongoose.model('Animal', AnimalSchema);
