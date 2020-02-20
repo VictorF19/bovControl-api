@@ -1,9 +1,11 @@
 const express = require('express');
 const cors = require('cors');
 const initDb = require('./src/initializeDatabase');
+const bodyParser = require('body-parser');
 
 const app = express();
-app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
 initDb.initializeDatabase();
