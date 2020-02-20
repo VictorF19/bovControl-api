@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const initDb = require('./src/initializeDatabase');
+const initDb = require('./src/services/initializeDatabase');
 const bodyParser = require('body-parser');
 
 const app = express();
