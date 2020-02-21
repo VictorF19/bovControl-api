@@ -23,6 +23,10 @@ module.exports = {
         return res.json(animal);
     },
     async editAnimal(req, res) {
+
+        if (req.body.id)
+            return res.status(400).send({ 'error': `You can't alter the Id field` })
+
         let animal = await Animal.findOneAndUpdate({ id: req.params.id }, req.body, { new: true });
         animal = await Animal.find({ id: animal.id }).select(selectString);
         
