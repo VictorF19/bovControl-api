@@ -62,16 +62,19 @@ Para se autenticar siga os passos acima, porém trocando o endpoint de "/registr
 - Clique em Save to as
 - Selecione a request criada > altere o método HTTP para POST > insira a url: localhost:3000/api/animals
 - Em Body, insira o seguinte JSON:
+```
     {
         "tipo": "Vaca",
         "nome": "Mimosa",
         "peso": 150,
         "idade": 30
     }
+```
 - Mude o formato para "raw" e o tipo para JSON
 - Vá em Authorization > mude o Type para Bearer Token > no campo "Token" insira o token copiado do retorno dos endpoints de autenticação
 - Envie a requisição
 - O retorno deverá ser:
+``` 
 [
     {
         "tipo": "Vaca",
@@ -81,3 +84,4 @@ Para se autenticar siga os passos acima, porém trocando o endpoint de "/registr
         "id": 1
     }
 ]
+```
