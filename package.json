@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "mocha --timeout 100000",
+    "test": "mocha ./test/api.spec.js --timeout 1000 --recursive",
     "dev": "nodemon server.js",
     "start": "node server.js"
   },
@@ -15,18 +15,18 @@
     "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
-    "chai": "^4.2.0",
     "chai-http": "^4.3.0",
-    "chai-subset": "^1.6.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "mocha": "^7.0.1",
     "mongoose": "^5.9.1",
     "mongoose-auto-increment": "^5.0.1",
     "mongoose-paginate": "^5.0.3"
   },
   "devDependencies": {
-    "nodemon": "^2.0.2"
+    "chai": "^4.2.0",
+    "nodemon": "^2.0.2",
+    "request": "^2.88.2",
+    "should": "^13.2.3"
   }
 }
