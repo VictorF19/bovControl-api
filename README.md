@@ -6,18 +6,18 @@ Para utilizar a aplicação siga os seguintes passos:
 
 ### Instalar o Docker
 
-Caso o ambiente de execução seja windows: siga os passos da documentação oficial para fazer a instalação
+Caso o ambiente de execução seja windows: siga os passos da documentação oficial para fazer a instalação.<br/> 
 Disponível em: https://docs.docker.com/docker-for-windows/install/
 
-Caso o ambiente de execução seja linux (utilizarei a distro ubuntu como exemplo por ser a mais utilizada em desktops), siga os passos do seguinte artigo:
+Caso o ambiente de execução seja linux (utilizarei a distro ubuntu como exemplo por ser a mais utilizada em desktops), siga os passos do seguinte artigo:<br/> 
 Disponível em: https://www.digitalocean.com/community/tutorials/omo-instalar-e-usar-o-docker-no-ubuntu-18-04-pt
 
-Instale também o docker compose, pois ele será necessário para subir o serviço.
+Instale também o docker compose, pois ele será necessário para subir o serviço.<br/> 
 Disponível em: https://docs.docker.com/compose/install/
 
 ### Subir o serviço
 
-Com o terminal aberto na pasta raiz do projeto, digite: docker-compose up
+Com o terminal aberto na pasta raiz do projeto, digite: docker-compose up<br/> 
 Aguarde o docker compose terminar de instanciar os contâiners.
 
 ### Instale o Postman
@@ -25,7 +25,7 @@ Aguarde o docker compose terminar de instanciar os contâiners.
 Faça o download do postman no site oficial: https://www.postman.com/downloads/
 Siga as instruções de instalação providas pela ferramenta.
 
-Crie uma nova collection no Postman, com o nome: "BovControlApi"
+Crie uma nova collection no Postman, com o nome: "BovControlApi"<br/> 
 Clique em Create
 
 ## Como utilizar
@@ -36,15 +36,17 @@ Para se autenticar na API da BovControl, siga os seguintes passos:
 
 #### Criação do usuário
 
-- Clique nos pontos em cima da Collection BovControlApi > Add Request
+- Clique nos três pontos em cima da Collection BovControlApi > Add Request
 - Request name: POST User
 - Clique em Save to as
 - Selecione a request criada > altere o método HTTP para POST > insira a url: localhost:3000/api/registration
 - Em Body, insira o seguinte JSON:
+```
     {
 	    "email": "test@bovcontrol.com",
 	    "password": "test"
     }
+```
 - Mude o formato para "raw" e o tipo para JSON
 - Envie a requisição e copie o token retornado na resposta
 
@@ -57,7 +59,7 @@ Para se autenticar siga os passos acima, porém trocando o endpoint de "/registr
 
 ### Criação de animal
 
-- Clique nos pontos em cima da Collection BovControlApi > Add Request
+- Clique nos três pontos em cima da Collection BovControlApi > Add Request
 - Request name: POST Animal
 - Clique em Save to as
 - Selecione a request criada > altere o método HTTP para POST > insira a url: localhost:3000/api/animals
@@ -88,7 +90,7 @@ Para se autenticar siga os passos acima, porém trocando o endpoint de "/registr
 
 ### Consultar animal pelo Id
 
-- Clique nos pontos em cima da Collection BovControlApi > Add Request
+- Clique nos três pontos em cima da Collection BovControlApi > Add Request
 - Request name: GET Animal By Id
 - Clique em Save to as
 - Selecione a request criada > altere o método HTTP para GET > insira a url: localhost:3000/api/animals/{id}
@@ -110,7 +112,7 @@ Para se autenticar siga os passos acima, porém trocando o endpoint de "/registr
 
 ### Alterar animal pelo Id
 
-- Clique nos pontos em cima da Collection BovControlApi > Add Request
+- Clique nos três pontos em cima da Collection BovControlApi > Add Request
 - Request name: PUT Animal
 - Clique em Save to as
 - Selecione a request criada > altere o método HTTP para PUT > insira a url: localhost:3000/api/animals/{id}
@@ -140,7 +142,7 @@ Para se autenticar siga os passos acima, porém trocando o endpoint de "/registr
 ### Consultar todos os animais
 
 - Para testar o recurso de paginação da API, insira mais 10 animais seguindos os passos da Criação de Animal
-- Clique nos pontos em cima da Collection BovControlApi > Add Request
+- Clique nos três pontos em cima da Collection BovControlApi > Add Request
 - Request name: GET Animals
 - Clique em Save to as
 - Selecione a request criada > altere o método HTTP para GET > insira a url: localhost:3000/api/animals
