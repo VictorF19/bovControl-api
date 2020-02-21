@@ -85,3 +85,173 @@ Para se autenticar siga os passos acima, porém trocando o endpoint de "/registr
     }
 ]
 ```
+
+### Consultar animal pelo Id
+
+- Clique nos pontos em cima da Collection BovControlApi > Add Request
+- Request name: GET Animal By Id
+- Clique em Save to as
+- Selecione a request criada > altere o método HTTP para GET > insira a url: localhost:3000/api/animals/{id}
+- Substitua o {id} pelo id do animal criado no passo acima
+- Vá em Authorization > mude o Type para Bearer Token > no campo "Token" insira o token copiado do retorno dos endpoints de autenticação
+- Envie a requisição
+- O retorno deverá ser:
+``` 
+[
+    {
+        "tipo": "Vaca",
+        "nome": "Mimosa",
+        "peso": 30,
+        "idade": 26,
+        "id": 1
+    }
+]
+```
+
+### Alterar animal pelo Id
+
+- Clique nos pontos em cima da Collection BovControlApi > Add Request
+- Request name: PUT Animal
+- Clique em Save to as
+- Selecione a request criada > altere o método HTTP para PUT > insira a url: localhost:3000/api/animals/{id}
+- Substitua o {id} pelo id do animal criado no POST
+- Mude o formato para "raw" e o tipo para JSON
+- Em Body, insira o seguinte JSON:
+```
+    {
+        "nome": "Belinda",
+    }
+```
+- Vá em Authorization > mude o Type para Bearer Token > no campo "Token" insira o token copiado do retorno dos endpoints de autenticação
+- Envie a requisição
+- O retorno deverá ser:
+``` 
+[
+    {
+        "tipo": "Vaca"
+        "nome": "Belinda",
+        "peso": 30,
+        "idade": 26,
+        "id": 1
+    }
+]
+```
+
+### Consultar todos os animais
+
+- Para testar o recurso de paginação da API, insira mais 10 animais seguindos os passos da Criação de Animal
+- Clique nos pontos em cima da Collection BovControlApi > Add Request
+- Request name: GET Animals
+- Clique em Save to as
+- Selecione a request criada > altere o método HTTP para GET > insira a url: localhost:3000/api/animals
+- Em Params > key: page e value: 1
+- Vá em Authorization > mude o Type para Bearer Token > no campo "Token" insira o token copiado do retorno dos endpoints de autenticação
+- Envie a requisição
+- O retorno deverá ser parecido com esse:
+``` 
+{
+    "docs": [
+        {
+            "tipo": "Dog",
+            "nome": "ALmofadinhas",
+            "peso": 30,
+            "idade": 26,
+            "id": 1
+        },
+        {
+            "tipo": "Dog",
+            "nome": "ALmofadinhas",
+            "peso": 30,
+            "idade": 26,
+            "id": 2
+        },
+        {
+            "tipo": "Dog",
+            "nome": "ALmofadinhas",
+            "peso": 30,
+            "idade": 26,
+            "id": 3
+        },
+        {
+            "tipo": "Vaca",
+            "nome": "Maria",
+            "peso": 30,
+            "idade": 26,
+            "id": 4
+        },
+        {
+            "tipo": "Galinha",
+            "nome": "Lilica",
+            "peso": 5,
+            "idade": 12,
+            "id": 5
+        },
+        {
+            "tipo": "Galinha",
+            "nome": "Lilica",
+            "peso": 5,
+            "idade": 12,
+            "id": 6
+        },
+        {
+            "tipo": "Galinha",
+            "nome": "Lilica",
+            "peso": 5,
+            "idade": 12,
+            "id": 7
+        },
+        {
+            "tipo": "Bode",
+            "nome": "John",
+            "peso": 40,
+            "idade": 15,
+            "id": 8
+        },
+        {
+            "tipo": "Bode",
+            "nome": "John",
+            "peso": 40,
+            "idade": 15,
+            "id": 9
+        },
+        {
+            "tipo": "Bode",
+            "nome": "John",
+            "peso": 40,
+            "idade": 15,
+            "id": 10
+        }
+    ],
+    "total": 12,
+    "limit": 10,
+    "page": "1",
+    "pages": 2
+}
+```
+- Em Params > key: page e value: 2
+- Envie a requisição
+- O retorno deverá ser parecido com esse:
+```
+{
+    "docs": [
+        {
+            "tipo": "Bode",
+            "nome": "John",
+            "peso": 40,
+            "idade": 15,
+            "id": 11
+        },
+        {
+            "tipo": "Bode",
+            "nome": "John",
+            "peso": 40,
+            "idade": 15,
+            "id": 12
+        }
+    ],
+    "total": 12,
+    "limit": 10,
+    "page": "2",
+    "pages": 2
+}
+```
